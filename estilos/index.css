@@ -1,0 +1,33 @@
+
+.menu {
+
+
+    padding-top: 150px;
+    border-right: solid;
+    border-color: black;
+    height: 100vh;
+    text-align: center;
+    
+
+}
+
+
+.opciones{
+    background-color: rgb(193, 206, 220);
+}
+
+.opcion:hover{
+    background-color: rgb(255, 162, 0);
+}
+
+.aopcion{
+    color:black;
+ }
+.aopcion:hover{
+   color: white;
+}
+
+.inicio {
+    text-align: center;
+    padding-top: 50px;
+}
