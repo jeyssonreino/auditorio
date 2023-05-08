@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,7 +25,7 @@
                 </div>
                 <div class="col-md-12 opciones">
                     <ul class="nav flex-column ">
-                    <li class="nav-item opcion">
+                        <li class="nav-item opcion">
                             <a class="nav-link aopcion" href="index.php">Universidades</a>
                         </li>
                         <li class="nav-item opcion">
@@ -41,43 +38,47 @@
 
 
             </div>
-            <div class="col-md-9 contenedor">
-                <div class="titulo">
-                    <h1>Registrar universidad</h1>
-                </div>
-                <form method="POST" action="#">
-                    <div class="form-group row item">
-                        <label class="col-4 col-form-label" for="id">Id</label>
-                        <div class="col-8">
-                            <input id="id" name="id" type="number" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group row item">
-                        <label for="nombre" class="col-4 col-form-label">Nombre</label>
-                        <div class="col-8">
-                            <input id="nombre" name="nombre" type="text" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group row item">
-                        <label for="ciudad" class="col-4 col-form-label">Ciudad</label>
-                        <div class="col-8">
-                            <input id="ciudad" name="ciudad" type="text" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group row item">
-                        <label for="salones" class="col-4 col-form-label">Número de salones</label>
-                        <div class="col-8">
-                            <input id="salones" name="salones" type="number" class="form-control" required>
-                        </div>
-                    </div>
 
-                    <div class="form-group row item">
-                        <div class="offset-4 col-8">
-                            <button name="submit" type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
+                <div class="col-md-9 contenedor" style="margin-top: 60px;">
+                    <div class="titulo">
+                        <h1>Registrar universidad</h1>
                     </div>
-                </form>
-            </div>
+                    <form method="POST" action="#">
+                        <div class="form-group row item">
+                            <label class="col-4 col-form-label" for="id">Id:</label>
+                            <div class="col-8">
+                                <input id="id" name="id" type="number" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row item">
+                            <label for="nombre" class="col-4 col-form-label">Nombre:</label>
+                            <div class="col-8">
+                                <input id="nombre" name="nombre" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row item">
+                            <label for="ciudad" class="col-4 col-form-label">Ciudad:</label>
+                            <div class="col-8">
+                                <input id="ciudad" name="ciudad" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row item">
+                            <label for="salones" class="col-4 col-form-label">Número de salones:</label>
+                            <div class="col-8">
+                                <input id="salones" name="salones" type="number" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row item">
+                            <div class="offset-4 col-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+       
+
         </div>
     </div>
 

@@ -1,14 +1,3 @@
-<?php 
-include('conexion.php');
-
-$id_universidad = $_POST['id'];
-
-?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,7 +26,7 @@ $id_universidad = $_POST['id'];
                 </div>
                 <div class="col-md-12 opciones">
                     <ul class="nav flex-column ">
-                    <li class="nav-item opcion">
+                        <li class="nav-item opcion">
                             <a class="nav-link aopcion" href="index.php">Universidades</a>
                         </li>
                         <li class="nav-item opcion">
@@ -52,7 +41,7 @@ $id_universidad = $_POST['id'];
             </div>
             <div class="col-md-9 contenedor">
                 <div class="titulo">
-                    <h1>Registrar solones</h1>
+                    <h1>Registrar salones</h1>
                 </div>
                 <form method="POST" action="#">
                     <div class="form-group row item">
@@ -73,6 +62,23 @@ $id_universidad = $_POST['id'];
                             <input id="facultad" name="facultad" type="text" class="form-control" required>
                         </div>
                     </div>
+
+                    <div class="form-group row item">
+                        <label for="universidad" class="col-4 col-form-label">Universidad</label>
+                        <select id="universidad" name="universidad">
+                            <option value="">Selecciona una universidad</option>
+                            <?php
+
+                            include('conexion.php');
+                            $queryu = "SELECT * FROM universidades";
+                            $resultu = mysqli_query($con, $queryu);
+                            while ($rowu = mysqli_fetch_assoc($resultu)) {
+                                echo "<option value='" . $rowu['id'] . "'>" . $rowu['nombre'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+
                     <div class="form-group row item">
                         <label for="facultad" class="col-4 col-form-label">Forma del salon</label>
                         <select id="forma" name="forma">
@@ -101,22 +107,21 @@ $id_universidad = $_POST['id'];
 
                     <script>
                         $(document).ready(function() {
-                                    $("#forma").on('change', function() {
-                                        var id = $('#forma').val();
-                                        // alert(valor_r);
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "informacion.php",
-                                            data: {
-                                                'id_v': id
-                                            },
-                                            success: function(r) {
-                                                $('#tipo').html(r);
-                                            }
-                                        });
-                                    });
-                                });   
-                               
+                            $("#forma").on('change', function() {
+                                var id = $('#forma').val();
+                                // alert(valor_r);
+                                $.ajax({
+                                    type: "POST",
+                                    url: "informacion.php",
+                                    data: {
+                                        'id_v': id
+                                    },
+                                    success: function(r) {
+                                        $('#tipo').html(r);
+                                    }
+                                });
+                            });
+                        });
                     </script>
 
 
@@ -139,26 +144,28 @@ $id_universidad = $_POST['id'];
 
 <?php
 
-if (isset($_POST['id']) && isset($_POST['numero']) && isset($_POST['facultad'])  && isset($_POST['forma']) && isset($_POST['tipo'])) {
+if (isset($_POST['id']) && isset($_POST['numero']) && isset($_POST['facultad'])  && isset($_POST['forma']) && isset($_POST['tipo']) && isset($_POST['universidad'])) {
 
     $id = $_POST['id'];
     $numero = $_POST['numero'];
     $facultad = $_POST['facultad'];
+    $universidad = $_POST['universidad'];
     $forma = $_POST['forma'];
     $tipo = $_POST['tipo'];
+   
 
     include('conexion.php');
     $validar = "SELECT * FROM `salones` WHERE `id` = '$id'";
     $existe = $con->query($validar);
     $cantidad = $existe->num_rows;
     if ($cantidad == 0) {
-        $sql = "INSERT INTO `salones`(`id`, `numero`, `facultad`, `id_forma_salon`,`id_tipo_salon`, `id_universidad`) VALUES ('$id','$numero','$facultad','$forma','$tipo', '$id_universidad')";
+        $sql = "INSERT INTO `salones`(`id`, `numero`, `facultad`, `id_forma_salon`,`id_tipo_salon`, `id_universidad`) VALUES ('$id','$numero','$facultad','$forma','$tipo', '$universidad')";
         $query = $con->query($sql);
         if ($query) {
             echo "<script>swal('¡Salon registrado exitosamente!')</script>";
         } else {
             echo "<script>swal('¡Error al guardar el salon')</script>";
-        }
+        }   
     } else {
         echo "<script>swal('¡El salon ya se encuentra registrado!')</script>";
     }
