@@ -16,26 +16,25 @@
 
 
 <body>
-    <div class="container-fluid  ">
+
+<div class="container-fluid  ">
         <div class="row ">
-            <div class="col-md-3 menu">
+            <div class="col-md-3 menu" style="background-color:#222f3e; color: white;">
                 <div class="col-md-12 ">
                     <h1>Menu</h1>
                     <hr>
                 </div>
-                <div class="col-md-12 opciones">
+                <div class="col-md-12 opciones" style="background-color: #222f3e; color: whitesmoke;">
                     <ul class="nav flex-column ">
                         <li class="nav-item opcion">
-                            <a class="nav-link aopcion" href="index.php">Universidades</a>
+                            <a class="nav-link aopcion"  style=" color: whitesmoke;"href="index.php">Universidades</a>
                         </li>
                         <li class="nav-item opcion">
-                            <a class="nav-link aopcion" href="listasalones.php">Salones</a>
+                            <a class="nav-link aopcion" style=" color: whitesmoke;" href="listasalones.php">Salones</a>
                         </li>
 
                     </ul>
                 </div>
-
-
 
             </div>
 
