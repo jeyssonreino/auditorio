@@ -1,7 +1,7 @@
 
 <?php
 
-include 'conexion.php';
+include '../repositorio/conexion.php';
 
 
 if (isset($_POST['eliminar'])) {
@@ -12,6 +12,6 @@ if (isset($_POST['eliminar'])) {
     mysqli_query($con, $sql);
 
 
-    header('Location: index.php');
+    header('Location: ../servicios/index.php');
     exit;
 }

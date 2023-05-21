@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos/index.css">
+    <link rel="stylesheet" href="../estilos/index.css">
 
     <title>Auditorio</title>
 
@@ -47,7 +47,7 @@
             </div>
                 <?php
                 if (isset($_POST['id'])) {
-                    include('conexion.php');
+                    include('../repositorio/conexion.php');
                     $id = $_POST['id'];
                     $validar = "SELECT * FROM `universidades` WHERE `id` = '$id'";
                     $existe = $con->query($validar);
@@ -55,7 +55,7 @@
                     if ($can == 1) {
                         while ($lista = $existe->fetch_assoc()) {
                             echo "<div class='col-12' style='margin: 20px 0px 0px 20px;'>";
-                            echo "<form action='actualizar.php' method='POST'>";
+                            echo "<form action='../repositorio/actualizar.php' method='POST'>";
                             echo "<input id='id' name='id' type='hidden' required='required' class='form-control col-3' value=" . $lista["id"] . "><br>";
                             echo "<input id='nombre' name='nombre' type='text' required='required' class='form-control col-3' value=" . $lista["nombre"] . "><br>";
                             echo "<input id='ciudad' name='ciudad' type='text' required='required' class='form-control col-3' value=" . $lista["ciudad"] . "><br>";

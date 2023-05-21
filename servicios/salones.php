@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos/index.css">
-    <link rel="stylesheet" href="estilos/colegios.css">
+    <link rel="stylesheet" href="../estilos/index.css">
+    <link rel="stylesheet" href="../estilos/colegios.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 
@@ -17,20 +17,20 @@
 
 
 <body>
-    <div class="container-fluid  ">
+    <div class="container-fluid" >
         <div class="row ">
-            <div class="col-md-3 menu">
+            <div class="col-md-3 menu" style="background-color:#222f3e; color: white;">
                 <div class="col-md-12 ">
                     <h1>Menu</h1>
                     <hr>
                 </div>
-                <div class="col-md-12 opciones">
+                <div class="col-md-12 opciones" style="background-color: #222f3e; color: whitesmoke;">
                     <ul class="nav flex-column ">
                         <li class="nav-item opcion">
-                            <a class="nav-link aopcion" href="index.php">Universidades</a>
+                            <a class="nav-link aopcion" style=" color: whitesmoke;" href="index.php">Universidades</a>
                         </li>
                         <li class="nav-item opcion">
-                            <a class="nav-link aopcion" href="listasalones.php">Salones</a>
+                            <a class="nav-link aopcion" style=" color: whitesmoke;" href="listasalones.php">Salones</a>
                         </li>
 
                     </ul>
@@ -69,7 +69,7 @@
                             <option value="">Selecciona una universidad</option>
                             <?php
 
-                            include('conexion.php');
+                            include('../repositorio/conexion.php');
                             $queryu = "SELECT * FROM universidades";
                             $resultu = mysqli_query($con, $queryu);
                             while ($rowu = mysqli_fetch_assoc($resultu)) {
@@ -85,7 +85,7 @@
                             <option value="">Selecciona una forma de salon</option>
                             <?php
 
-                            include('conexion.php');
+                            include('../repositorio/conexion.php');
                             $query = "SELECT * FROM forma_salon";
                             $result = mysqli_query($con, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -112,7 +112,7 @@
                                 // alert(valor_r);
                                 $.ajax({
                                     type: "POST",
-                                    url: "informacion.php",
+                                    url: "../repositorio/informacion.php",
                                     data: {
                                         'id_v': id
                                     },
@@ -154,7 +154,7 @@ if (isset($_POST['id']) && isset($_POST['numero']) && isset($_POST['facultad']) 
     $tipo = $_POST['tipo'];
    
 
-    include('conexion.php');
+    include('../repositorio/conexion.php');
     $validar = "SELECT * FROM `salones` WHERE `id` = '$id'";
     $existe = $con->query($validar);
     $cantidad = $existe->num_rows;
